@@ -1,5 +1,6 @@
 package salwiczek.bartosz;
 
+import lombok.Getter;
 import salwiczek.bartosz.Army.Barracks;
 import salwiczek.bartosz.Bakery.Bakery;
 import salwiczek.bartosz.Farm.Farm;
@@ -12,9 +13,12 @@ import java.util.ArrayList;
 public class Kingdom{
     Mine mine;
     Smithy smithy;
+    @Getter
     Barracks barracs;
     Bakery bakery;
     Farm farm;
+
+    @Getter
     String name;
 
     King king;

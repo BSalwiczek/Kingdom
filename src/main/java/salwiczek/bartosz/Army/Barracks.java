@@ -1,5 +1,7 @@
 package salwiczek.bartosz.Army;
 
+import lombok.Getter;
+import lombok.Setter;
 import salwiczek.bartosz.Bakery.Bakery;
 import salwiczek.bartosz.Farm.Farm;
 import salwiczek.bartosz.Mine.Miner;
@@ -10,7 +12,10 @@ import java.util.List;
 
 public class Barracks {
     private List<Thread> warriorsT;
-    private List<Warrior> warriors;
+
+    @Getter
+    @Setter
+    private ArrayList<Warrior> warriors;
     Smithy smithy;
     Bakery bakery;
 
@@ -29,7 +34,7 @@ public class Barracks {
     {
         String format = "%-15s %-15s %-15s %-15s %n";
         System.out.format(format, "Barracs", "Warriors", "Total power", "Total defense");
-        System.out.format(format, "", warriors.size(),getWarriorsPower(),getWarriorsDefense());
+        System.out.format(format, "", warriors.size(),getWarriorsPower(),Math.max(0,getWarriorsDefense()));
     }
 
     public void stop()

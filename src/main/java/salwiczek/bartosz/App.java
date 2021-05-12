@@ -1,5 +1,7 @@
 package salwiczek.bartosz;
 
+import salwiczek.bartosz.Battlefield.Battlefield;
+
 import java.io.IOException;
 
 /**
@@ -37,6 +39,17 @@ public class App
                 Thread.currentThread().interrupt();
             }
         }
+
+        Battlefield battlefield= new Battlefield(kingdom1, kingdom2);
+
+        clearConsole();
+
+        System.out.println("Time left to fight: "+((fightTime - System.currentTimeMillis())/1000)+"s");
+        System.out.println();
+        kingdom1.print();
+        System.out.println();
+        kingdom2.print();
+
         System.out.println();
         System.out.println();
         System.out.println();
@@ -44,7 +57,7 @@ public class App
         System.out.println();
         System.out.println("=====================================================================");
         System.out.println("FIGHT!");
-        System.out.println(getWinner(kingdom1, kingdom2) + " wins");
+        System.out.println(battlefield.getWinner() + " wins");
         System.out.println("=====================================================================");
         kingdom1.stop();
         kingdom2.stop();
@@ -61,11 +74,11 @@ public class App
         } catch (IOException | InterruptedException ex) {}
     }
 
-    public static String getWinner(Kingdom k1, Kingdom k2) {
-        if(k1.getPoints() == k2.getPoints())
-            return "No kingdom";
-        if(k1.getPoints() > k2.getPoints())
-            return k1.name;
-        return k2.name;
-    }
+//    public static String getWinner(Kingdom k1, Kingdom k2) {
+//        if(k1.getPoints() == k2.getPoints())
+//            return "No kingdom";
+//        if(k1.getPoints() > k2.getPoints())
+//            return k1.name;
+//        return k2.name;
+//    }
 }
